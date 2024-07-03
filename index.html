@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFrame Example</title>
+</head>
+<body>
+    <script>
+        // Функція для відправки повідомлення до батьківського вікна
+        function sendMessageToParent() {
+            const selectedText = window.getSelection().toString().trim();
+            if (selectedText) {
+                window.parent.postMessage({ type: 'selectedText', text: selectedText }, '*');
+            }
+        }
+
+        // Слухач подій для відправки повідомлення при виділенні тексту
+        document.addEventListener('selectionchange', sendMessageToParent);
+    </script>
+</body>
+</html>
