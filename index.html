@@ -10,6 +10,7 @@
         // Функція для відправки повідомлення до батьківського вікна
         function sendMessageToParent() {
             const selectedText = window.getSelection().toString().trim();
+            console.log('index html selectedText:', selectedText)
             if (selectedText) {
                 window.parent.postMessage({ type: 'selectedText', text: selectedText }, '*');
             }
